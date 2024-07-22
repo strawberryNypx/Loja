@@ -31,7 +31,9 @@ $Lista = $funcoes->listarPordutos();
                                                 <p class="card-text"><?php $i["id"]; echo $i['NomeDoProduto'];?></p>
                                                 <div class="d-flex justify-content-between align-items-center">
                                                     <div class="btn-group">
-                                                    <button type="button" class="btn btn-outline-primary" onclick="window.location.href='/Projetos/Loja/Functions/Redirect/AdicionarCarrinho.php?id=<?php echo $i['id']?>'"><i class="fa-solid fa-cart-plus"></i></button>
+                                                        <a class="btn btn-outline-primary" href="/Projetos/Loja/Functions/Redirect/AdicionarCarrinho.php?id=<?php echo $i['id']?>" >
+                                                            <i class="fa-solid fa-cart-plus"></i>
+                                                        </a>
 
                                                     </div>
                                                     <text class="text-body-secondary">R$ <?php $i["id"]; echo $i['Preco'];?></>

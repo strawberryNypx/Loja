@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 if(isset( $_POST["email"] ) && isset( $_POST["senha"] )){
     require("../Conexao/Conexao.php");
     
@@ -14,10 +16,12 @@ if(isset( $_POST["email"] ) && isset( $_POST["senha"] )){
     $qnt = $user->num_rows; 
 
     if($qnt > 0){
-        session_start();
-        $id = "SELECT `id` FROM `Usuario` WHERE email = '$email' AND senha = '$senha'";
+        $consulta = "SELECT `id`, `Email`, `Senha`, `Nome`, `Estado`, `Rua`, `Cep` FROM `Usuario` WHERE email = '$email'";
+        $user = $conexao->select($consulta);
 
-        $_SESSION['id'] = $id;
+        $obj = $user->fetch_object();
+
+        $_SESSION['id'] = $obj->id;
         $_SESSION['email'] = $email;
         $_SESSION['senha'] = $senha;
         $_SESSION['logado'] = True;

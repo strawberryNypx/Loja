@@ -26,7 +26,7 @@ if(isset( $_POST["email"] ) && isset( $_POST["senha"] )){
         $_SESSION['senha'] = $senha;
         $_SESSION['logado'] = True;
         header('Location: ../../index.php');
-        exit();
+ 
     }else{
         echo'email ou senha invalidos, por favor tente novamente';
     }

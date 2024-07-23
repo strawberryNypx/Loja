@@ -17,8 +17,8 @@ class Funcoes extends Conexao{
         return $resposta = $result->fetch_all(MYSQLI_ASSOC);
     }    
 
-    public function CriarConta($email,$senha, $nome, $cpf, $estado, $rua, $cep){
-        $result = parent::insert("INSERT INTO `Usuario`(`Email`, `Senha`, `Nome`, `Cpf`, `Estado`, `Rua`, `Cep`) VALUES ('$email','$senha','$nome','$cpf','$estado','$rua','$cep')");
+    public function CriarConta($email,$senha, $nome, $estado, $rua, $cep){
+        $result = parent::insert("INSERT INTO `Usuario`(`Email`, `Senha`, `Nome`, `Estado`, `Rua`, `Cep`) VALUES ('$email','$senha','$nome','$estado','$rua','$cep')");
     }
 
     public function AdicionarItemNoCarrinho($idDoCliente, $quantidade, $idDoProduto){

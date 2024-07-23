@@ -8,7 +8,7 @@ $funcoes = new funcoes();
 ?>
 
 <body>
-<form method="post">
+<form action="/Projetos/Loja/Functions/Redirect/CarrinhoFuncao.php" method="post">
     <div class="Container">
         <div class="Contente">
             <table class="table">
@@ -46,7 +46,7 @@ $funcoes = new funcoes();
             </table>
         </div>
     </div>
-    <input type="submit" value="enviar" >
+    <input class="btn btn-primary"  type="submit" value="comprar" >
 </form>
 
     <script>

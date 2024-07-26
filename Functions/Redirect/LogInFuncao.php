@@ -21,6 +21,7 @@ if(isset( $_POST["email"] ) && isset( $_POST["senha"] )){
 
         $obj = $user->fetch_object();
 
+        $_SESSION['nome'] = $obj->Nome;
         $_SESSION['id'] = $obj->id;
         $_SESSION['email'] = $email;
         $_SESSION['senha'] = $senha;

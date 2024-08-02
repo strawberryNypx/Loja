@@ -1,7 +1,7 @@
 <?php
 session_start();
  
-echo "<pre>"; print_r($_SESSION);
+//echo "<pre>"; print_r($_SESSION);
 
 /*
 if (!isset($_SESSION['id'])) {
@@ -33,7 +33,7 @@ if (!isset($_GET['id'])) {
     }
 }
 
-echo "<pre>"; print_r($_SESSION);
+//echo "<pre>"; print_r($_SESSION);
 /*
 if($_SESSION['logado'] == True){
     require("../funcoes.php");

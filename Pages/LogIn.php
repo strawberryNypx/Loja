@@ -156,7 +156,7 @@ if ($_SESSION["logado"] != "True") {
 
 
             <br>
-            <button class="w-100 btn btn-danger btn-lg" type="submit">Sair</button>
+            <a class="w-100 btn btn-danger btn-lg" href="logout.php" >Sair</a>
 
         </div>
       </div>

@@ -3,8 +3,9 @@ session_start();
 require ("../Functions/Includes/Navbar.php");
 require('../Functions/funcoes.php');
 
-$funcoes = new funcoes();
+$funcoes = new Funcoes();
 
+if($_SESSION['logado'] == True){
 ?>
 
 <body>
@@ -22,6 +23,7 @@ $funcoes = new funcoes();
                     </tr>
                 </thead>
                 <tbody>
+
                     <?php
                     foreach($_SESSION['carrinho'] AS $item) {
                         
@@ -36,7 +38,7 @@ $funcoes = new funcoes();
                             <th scope="row"><input id="quantidade_<?php echo $item['id']; ?>" value="<?php echo $item['quantidade']; ?>" type="number"></th>
                             <td><?php echo $dadosProduto[0]['NomeDoProduto']; ?></td>
                             <td><?php echo $dadosProduto[0]['Preco']; ?></td>
-                            <td><a href=""><i class="fa-solid fa-trash" style="color: #a51d2d;"></i></a></td>
+                            <td><a href="#null" onclick="removerCarrinho(<?php echo $item['id']; ?>)" ><i class="fa-solid fa-trash" style="color: #a51d2d;"></i></a></td>
                             <td><a href="#null" onclick="atualizarCarrinho(<?php echo $item['id']; ?>)" class="btn-info" ><i class="fa-solid fa-edit  " ></i></a></td>
                         </tr>
                     <?php
@@ -46,7 +48,7 @@ $funcoes = new funcoes();
             </table>
         </div>
     </div>
-    <input class="btn btn-primary"  type="submit" value="comprar" >
+    <input class="btn btn-primary"  type="submit" value="comprar" href="../Functions/Redirect/RedirectPedidos.php" >
 </form>
 
     <script>
@@ -56,7 +58,20 @@ $funcoes = new funcoes();
 
             location.href = "/Projetos/Loja/Functions/Redirect/AdicionarCarrinho.php?id="+id+"&quantidade="+quantidade.value;
         }
+
+
+        function removerCarrinho(id) {
+            
+            location.href = "/Projetos/Loja/Functions/Redirect/RemoverCarrinho.php?id="+id;
+        }
     </script>
+<?php
+                        }else{
+?>
+
+    <h2>Faça o LogIn para acessar o carrinho</h2>
+<?php                           } ?>
+                        
     <script src="/docs/5.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>

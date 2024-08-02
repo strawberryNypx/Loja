@@ -24,4 +24,12 @@ class Funcoes extends Conexao{
     public function AdicionarItemNoCarrinho($idDoCliente, $quantidade, $idDoProduto){
         $result = parent::insert("INSERT INTO `Carrinho`(`id_Cliente`, `id_Produto`, `quantidade`) VALUES ('$idDoCliente','$quantidade','$idDoProduto')");
     }
+
+    public function FinalizarCompra($userid , $idDoProduto ,$quantidadeDoProdutos){
+        //echo "aqi";
+        //echo "INSERT INTO `Pedidos`(`id_Cliente`, `id_Produto`, `quantidade`) VALUES ('$userid','$idDoProduto','$quantidadeDoProdutos')";
+        
+        //exit;
+        return $result = parent::insert("INSERT INTO `Pedidos`(`id_Cliente`, `id_Produto`, `quantidade`) VALUES ('$userid','$idDoProduto','$quantidadeDoProdutos')");
+    }
 }

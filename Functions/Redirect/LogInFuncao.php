@@ -7,7 +7,7 @@ if(isset( $_POST["email"] ) && isset( $_POST["senha"] )){
     $conexao = new Conexao();
     
     $email = $_POST["email"];
-    $senha = $_POST["senha"];
+    $senha = md5($_POST["senha"]);
 
     $sql = "SELECT * FROM `Usuario` WHERE email = '$email' AND senha = '$senha'";
 
@@ -24,7 +24,7 @@ if(isset( $_POST["email"] ) && isset( $_POST["senha"] )){
         $_SESSION['nome'] = $obj->Nome;
         $_SESSION['id'] = $obj->id;
         $_SESSION['email'] = $email;
-        $_SESSION['senha'] = $senha;
+        //$_SESSION['senha'] = md5($senha);
         $_SESSION['logado'] = True;
         header('Location: ../../index.php');
  

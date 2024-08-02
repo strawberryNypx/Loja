@@ -6,7 +6,7 @@ if(isset($_POST["emailCriar"]) && isset($_POST["senhaCriar"])){
         if(isset($_POST["estado"]) && isset($_POST["rua"]) && isset($_POST["cep"])){
 
             $emailCriar = $_POST["emailCriar"];
-            $senhaCriar = $_POST["senhaCriar"];
+            $senhaCriar = md5($_POST["senhaCriar"]);
             $nome = $_POST["nome"];
             $estado = $_POST["estado"];
             $rua = $_POST["rua"];
